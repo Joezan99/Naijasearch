@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advertisements — NaijaReach</title>
+<meta name="description" content="Browse example advertisements currently running on NaijaReach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">NaijaReach<span class="dot">.</span></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" data-nav-links>
+      <a href="index.html">Home</a>
+      <a href="campaign.html">Advertise</a>
+      <a href="ads.html">Advertisements</a>
+      <a href="admin.html">Admin</a>
+      <a href="campaign.html" class="btn btn-primary btn-sm nav-cta">Create Campaign</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Advertisements</h1>
+    <p>A look at approved campaigns currently running on NaijaReach.</p>
+  </div>
+</div>
+
+<main>
+  <section>
+    <div class="container">
+      <div class="field" style="max-width:280px; margin-bottom:26px;">
+        <label for="adsFilter">Filter by category</label>
+        <select id="adsFilter"></select>
+      </div>
+      <div class="ad-grid" id="adsGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">NaijaReach</div>
+        <p class="footer-note">A prototype advertising platform helping Nigerian businesses reach the audience that matters to them.</p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="campaign.html">Create Campaign</a></li>
+          <li><a href="ads.html">Advertisements</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NaijaReach. Prototype — not a live service.</span>
+      <span>Made in Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
