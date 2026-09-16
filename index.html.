@@ -194,3 +194,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+cd path/to/Naijasearch
+git rm index.html
+git commit -m "Delete index.html"
+git push origin main
