@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create a Campaign — NaijaReach</title>
+<meta name="description" content="Create an advertising campaign on NaijaReach and preview your advert before you submit it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">NaijaReach<span class="dot">.</span></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" data-nav-links>
+      <a href="index.html">Home</a>
+      <a href="campaign.html">Advertise</a>
+      <a href="ads.html">Advertisements</a>
+      <a href="admin.html">Admin</a>
+      <a href="campaign.html" class="btn btn-primary btn-sm nav-cta">Create Campaign</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Create your campaign</h1>
+    <p>Fill in your campaign details below. You'll see a live preview of your advert as you type, and your campaign will be reviewed before it goes live.</p>
+  </div>
+</div>
+
+<main>
+  <section>
+    <div class="container">
+
+      <div id="formSuccess" class="banner banner-success hidden">
+        Campaign submitted. It's now pending review — check the <a href="admin.html">admin dashboard</a> for its status.
+      </div>
+
+      <div class="campaign-layout">
+
+        <!-- FORM -->
+        <div class="form-card">
+          <h2 style="font-size:1.2rem;">Campaign details</h2>
+          <form id="campaignForm" novalidate>
+            <div class="form-grid two-col">
+
+              <div class="field">
+                <label for="businessName">Business name</label>
+                <input type="text" id="businessName" name="businessName" placeholder="e.g. Ade's Kitchen">
+                <span class="field-error">Enter your business name.</span>
+              </div>
+
+              <div class="field">
+                <label for="title">Advert title</label>
+                <input type="text" id="title" name="title" placeholder="e.g. Home-cooked meals, delivered hot">
+                <span class="field-error">Enter an advert title.</span>
+              </div>
+
+              <div class="field full">
+                <label for="description">Advert description</label>
+                <textarea id="description" name="description" placeholder="Describe what you're advertising, in a couple of sentences."></textarea>
+                <span class="field-error">Description should be at least 10 characters.</span>
+              </div>
+
+              <div class="field full">
+                <label for="url">Website URL <span class="hint">(optional)</span></label>
+                <input type="url" id="url" name="url" placeholder="https://yourbusiness.com">
+                <span class="field-error">Start the URL with http:// or https://</span>
+              </div>
+
+              <div class="field">
+                <label for="category">Advert category</label>
+                <select id="category" name="category"></select>
+                <span class="field-error">Choose a category.</span>
+              </div>
+
+              <div class="field">
+                <label for="audience">Target audience</label>
+                <select id="audience" name="audience"></select>
+                <span class="field-error">Choose a target audience.</span>
+              </div>
+
+              <div class="field">
+                <label for="country">Target country</label>
+                <select id="country" name="country"></select>
+                <span class="field-error">Choose a target country.</span>
+              </div>
+
+              <div class="field">
+                <label for="city">Target city / region</label>
+                <input type="text" id="city" name="city" placeholder="e.g. Lagos, or Nationwide">
+                <span class="field-error">Enter a target city or region.</span>
+              </div>
+
+              <div class="field">
+                <label for="budget">Campaign budget (₦)</label>
+                <input type="number" id="budget" name="budget" min="1" step="500" placeholder="e.g. 20000">
+                <span class="field-error">Enter a budget greater than 0.</span>
+              </div>
+
+              <div class="field">
+                <label for="startDate">Campaign start date</label>
+                <input type="date" id="startDate" name="startDate">
+                <span class="field-error">Choose a start date.</span>
+              </div>
+
+              <div class="field">
+                <label for="endDate">Campaign end date</label>
+                <input type="date" id="endDate" name="endDate">
+                <span class="field-error">Choose an end date after the start date.</span>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Submit campaign for review</button>
+              <span class="small-print">Campaigns are reviewed before going live. No payment is required yet.</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- LIVE PREVIEW -->
+        <div class="preview-col">
+          <div class="preview-shell">
+            <h3>Ad preview</h3>
+            <p class="hint">This is roughly how your advert could appear on NaijaReach.</p>
+
+            <div class="preview-ad">
+              <div class="ad-card-media" id="previewMedia">Your business name</div>
+              <div class="ad-card-body">
+                <span class="ad-card-cat" id="previewCat">Category</span>
+                <h3 id="previewTitle">Your advert title will appear here</h3>
+                <p id="previewDesc">Your advert description will appear here, so keep it clear and inviting.</p>
+                <div class="ad-card-meta">
+                  <span id="previewLoc">Target location</span>
+                  <span class="ad-card-cta">Learn more →</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-summary" id="previewSummary"></div>
+            <div class="impressions-box hidden" id="impressionsEstimate"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">NaijaReach</div>
+        <p class="footer-note">A prototype advertising platform helping Nigerian businesses reach the audience that matters to them.</p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="campaign.html">Create Campaign</a></li>
+          <li><a href="ads.html">Advertisements</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NaijaReach. Prototype — not a live service.</span>
+      <span>Made in Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
