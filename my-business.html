@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Business — NaijaReach</title>
+<meta name="description" content="Create and manage your business profile on NaijaReach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">NaijaReach<span class="dot">.</span></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" data-nav-links>
+      <a href="index.html">Home</a>
+      <a href="campaign.html">Advertise</a>
+      <a href="ads.html">Advertisements</a>
+      <a href="campaign.html" class="btn btn-primary btn-sm nav-cta">Create Campaign</a>
+      <span id="navAuthSlot"></span>
+    </nav>
+  </div>
+</header>
+
+<div class="auth-shell hidden" id="businessAuthGate">
+  <div class="form-card text-center">
+    <h2 style="font-size:1.2rem;">Log in to manage your business</h2>
+    <p>You need an account to create a business profile.</p>
+    <a href="login.html" class="btn btn-primary btn-block" style="margin-bottom:10px;">Log in</a>
+    <a href="signup.html" class="btn btn-outline btn-block">Sign up</a>
+  </div>
+</div>
+
+<div id="businessWrap" class="hidden">
+  <div class="page-hero">
+    <div class="container">
+      <h1>My Business</h1>
+      <p>Your persistent business profile — separate from any single ad campaign.</p>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="container">
+        <div id="dashSubnavSlot"></div>
+
+        <div class="form-card" style="max-width:640px;">
+          <h2 id="businessFormTitle" style="font-size:1.2rem;">Create your business profile</h2>
+          <div id="businessStatusNote" class="banner banner-info hidden"></div>
+          <div id="businessSuccess" class="banner banner-success hidden"></div>
+          <div id="businessError" class="banner banner-error hidden"></div>
+
+          <form id="businessForm" novalidate>
+            <div class="field">
+              <label for="businessNameField">Business name</label>
+              <input type="text" id="businessNameField" name="businessNameField" placeholder="e.g. Ade's Kitchen" required>
+            </div>
+
+            <div class="field">
+              <label for="businessDescription">Description</label>
+              <textarea id="businessDescription" name="businessDescription" placeholder="What does your business do?"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="businessCategory">Category</label>
+              <select id="businessCategory" name="businessCategory"></select>
+            </div>
+
+            <div class="field">
+              <label for="businessWebsite">Website <span class="hint">(optional)</span></label>
+              <input type="url" id="businessWebsite" name="businessWebsite" placeholder="https://yourbusiness.com">
+            </div>
+
+            <div class="form-grid two-col">
+              <div class="field">
+                <label for="businessPhone">Phone <span class="hint">(optional)</span></label>
+                <input type="text" id="businessPhone" name="businessPhone" placeholder="e.g. 0803 123 4567">
+              </div>
+              <div class="field">
+                <label for="businessEmail">Contact email <span class="hint">(optional)</span></label>
+                <input type="email" id="businessEmail" name="businessEmail" placeholder="contact@yourbusiness.com">
+              </div>
+            </div>
+
+            <div class="form-grid two-col">
+              <div class="field">
+                <label for="businessCountry">Country</label>
+                <input type="text" id="businessCountry" name="businessCountry" placeholder="e.g. Nigeria" required>
+              </div>
+              <div class="field">
+                <label for="businessState">State <span class="hint">(optional)</span></label>
+                <input type="text" id="businessState" name="businessState" placeholder="e.g. Lagos State">
+              </div>
+            </div>
+
+            <div class="form-grid two-col">
+              <div class="field">
+                <label for="businessCity">City</label>
+                <input type="text" id="businessCity" name="businessCity" placeholder="e.g. Lagos" required>
+              </div>
+              <div class="field">
+                <label for="businessAddress">Address <span class="hint">(optional)</span></label>
+                <input type="text" id="businessAddress" name="businessAddress" placeholder="Street address">
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="businessSubmitBtn">Create business</button>
+            </div>
+          </form>
+
+          <div class="danger-zone hidden" id="businessDangerZone">
+            <h3 style="font-size:1rem; margin-bottom:6px;">Danger zone</h3>
+            <p class="small-print" style="margin-bottom:12px;">Permanently delete this business profile.</p>
+            <button type="button" class="btn btn-danger" id="deleteBusinessBtn">Delete Business</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- DELETE CONFIRMATION MODAL -->
+<div class="modal-overlay hidden" id="deleteBusinessModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 style="margin-bottom:0;">Delete this business?</h3>
+      <button class="modal-close" data-modal-close aria-label="Close">&times;</button>
+    </div>
+    <p>This will permanently delete your business profile and its services. Your existing campaigns will remain, but they will no longer be linked to this business.</p>
+    <div id="deleteBusinessError" class="banner banner-error hidden"></div>
+    <div class="form-actions" style="border-top:none; padding-top:0;">
+      <button type="button" class="btn btn-outline" id="deleteBusinessCancel">Cancel</button>
+      <button type="button" class="btn btn-danger" id="deleteBusinessConfirm">Delete Business</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">NaijaReach</div>
+        <p class="footer-note">A prototype advertising platform helping Nigerian businesses reach the audience that matters to them.</p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="campaign.html">Create Campaign</a></li>
+          <li><a href="ads.html">Advertisements</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NaijaReach. Prototype — not a live service.</span>
+      <span>Made in Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
